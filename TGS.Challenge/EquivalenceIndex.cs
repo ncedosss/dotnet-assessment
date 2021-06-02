@@ -19,7 +19,14 @@ namespace TGS.Challenge
     {
       public int Find(int[] numbers)
       {
-        return -99;
+            int index = 0, beforeIndex = 0, afterIndex = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                
+            }
+
+            return -99;
       }
     }
 }
