@@ -38,6 +38,7 @@ namespace TGS.Challenge
                 Array.Sort(charWord1);
                 Array.Sort(charWord2);
 
+                //Check is they are equal
                 if (new string(charWord1) == new string(charWord2))
                     results = true;
                 else
