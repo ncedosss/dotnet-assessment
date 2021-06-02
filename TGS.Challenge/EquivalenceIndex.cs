@@ -31,15 +31,23 @@ namespace TGS.Challenge
 
                     for (int z = 0; z < numbers.Length; z++)
                     {
-                        if (Array.IndexOf(numbers, z) > i)
+                        if (Array.IndexOf(numbers, numbers[z]) > i)
                         {
                             afterIndex += numbers[z];
                         }
                     }
+
+                    if (beforeIndex == afterIndex)
+                    {
+                        index = i;
+                        break;
+                    }
                 }
+                beforeIndex = 0;
+                afterIndex = 0;
             }
 
-            return -99;
+            return index;
       }
     }
 }
