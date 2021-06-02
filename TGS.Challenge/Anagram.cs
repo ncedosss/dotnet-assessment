@@ -25,7 +25,6 @@ namespace TGS.Challenge
       public bool AreAnagrams(string word1, string word2)
       {
         return false;
-
       }
     }
 }
