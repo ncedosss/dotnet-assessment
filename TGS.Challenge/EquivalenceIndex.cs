@@ -21,31 +21,39 @@ namespace TGS.Challenge
     {
       public int Find(int[] numbers)
       {
+            //Declaration
             int index = 0, beforeIndex = 0, afterIndex = 0;
 
-            for (int i = 0; i < numbers.Length; i++)
+            if (numbers.Length >= 0 && numbers.Length <= 100000)
             {
-                if (i > 0)
+                //A first loop that keeps track of the left hand side of the index
+                for (int i = 0; i < numbers.Length; i++)
                 {
-                    beforeIndex += numbers[i - 1];
-
-                    for (int z = 0; z < numbers.Length; z++)
+                    if (i > 0)
                     {
-                        if (Array.IndexOf(numbers, numbers[z]) > i)
+                        beforeIndex += numbers[i - 1];
+
+                        //A second loop that keeps track of the right hand side of the index
+                        for (int z = 0; z < numbers.Length; z++)
                         {
-                            afterIndex += numbers[z];
+                            if (Array.IndexOf(numbers, numbers[z]) > i)
+                            {
+                                afterIndex += numbers[z];
+                            }
                         }
-                    }
 
-                    if (beforeIndex == afterIndex)
-                    {
-                        index = i;
-                        break;
+                        //Compare the two sides and return index that splits these sides
+                        if (beforeIndex == afterIndex)
+                        {
+                            index = i;
+                            break;
+                        }
+                        else
+                            index = -1;
                     }
-                    else
-                        index = -1;
+                    //Reset the afterIndex
+                    afterIndex = 0;
                 }
-                afterIndex = 0;
             }
 
             return index;
