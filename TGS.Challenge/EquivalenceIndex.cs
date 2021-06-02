@@ -1,3 +1,5 @@
+using System;
+
 namespace TGS.Challenge
 {
   /*
@@ -23,7 +25,18 @@ namespace TGS.Challenge
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                
+                if (i > 0)
+                {
+                    beforeIndex += numbers[i - 1];
+
+                    for (int z = 0; z < numbers.Length; z++)
+                    {
+                        if (Array.IndexOf(numbers, z) > i)
+                        {
+                            afterIndex += numbers[z];
+                        }
+                    }
+                }
             }
 
             return -99;
