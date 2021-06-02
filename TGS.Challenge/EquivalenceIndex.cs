@@ -42,8 +42,9 @@ namespace TGS.Challenge
                         index = i;
                         break;
                     }
+                    else
+                        index = -1;
                 }
-                beforeIndex = 0;
                 afterIndex = 0;
             }
 
