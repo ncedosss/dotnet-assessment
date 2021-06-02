@@ -27,19 +27,32 @@ namespace TGS.Challenge
       public bool AreAnagrams(string word1, string word2)
       {
             bool results = false;
+            try
+            {
+                if (!string.IsNullOrEmpty(word1) && !string.IsNullOrEmpty(word2))
+                {
 
-            //Convert words to char arrays
-            var charWord1 = word1.ToLower().ToCharArray();
-            var charWord2 = word2.ToLower().ToCharArray();
+                    //Convert words to char arrays
+                    var charWord1 = word1.ToLower().ToCharArray();
+                    var charWord2 = word2.ToLower().ToCharArray();
 
-            //Sort Array in ascending order
-            Array.Sort(charWord1);
-            Array.Sort(charWord2);
+                    //Sort Array in ascending order
+                    Array.Sort(charWord1);
+                    Array.Sort(charWord2);
 
-            if (charWord1.ToString().Equals(charWord2.ToString()))
-                results = true;
-            else
-                results = false;
+                    if (new string(charWord1) == new string(charWord2))
+                        results = true;
+                    else
+                        results = false;
+                }
+                else
+                    throw new Exception();
+            }
+            catch (ArgumentException e)
+            {
+                throw e.InnerException;
+            }
+
 
             return results;
       }
