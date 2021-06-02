@@ -16,20 +16,27 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            //Declaration
             int results = 0;
-            string[] vowel = { "a", "e", "i", "o", "u" };
-
-            var charValue = value.ToLower().ToCharArray();
-
-            for (int i = 0; i < value.Length; i++)
+            if (!string.IsNullOrEmpty(value))
             {
-                //if (Array.IndexOf(vowel, charValue[i].ToString()) > 0)
-                if (Array.IndexOf(vowel, charValue[i].ToString()) > -1)
+                //Declaration
+                string[] vowel = { "a", "e", "i", "o", "u" };
+
+                //Convert value to charArray and lower cases
+                var charValue = value.ToLower().ToCharArray();
+
+                //Loop through the value string and search indexes found on the vowel array
+                for (int i = 0; i < value.Length; i++)
                 {
-                    results++;
+                    if (Array.IndexOf(vowel, charValue[i].ToString()) > -1)
+                    {
+                        results++;
+                    }
                 }
             }
+            else
+                throw new ArgumentException();
+
             return results;
         }
     }
