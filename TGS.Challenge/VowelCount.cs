@@ -18,16 +18,15 @@ namespace TGS.Challenge
         {
             //Declaration
             int results = 0;
-            string[] vowel = new string[] { "a", "e", "i", "o", "u" };
+            string[] vowel = { "a", "e", "i", "o", "u" };
 
-            var charValue = value.ToCharArray();
+            var charValue = value.ToLower().ToCharArray();
 
             for (int i = 0; i <= value.Length; i++)
             {
-                
+                if (Array.IndexOf(vowel, charValue[i]) > 0)
+                    results++;
             }
-           
-
             return -1;
         }
     }
