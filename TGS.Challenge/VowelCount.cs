@@ -22,12 +22,15 @@ namespace TGS.Challenge
 
             var charValue = value.ToLower().ToCharArray();
 
-            for (int i = 0; i <= value.Length; i++)
+            for (int i = 0; i < value.Length; i++)
             {
-                if (Array.IndexOf(vowel, charValue[i]) > 0)
+                //if (Array.IndexOf(vowel, charValue[i].ToString()) > 0)
+                if (Array.IndexOf(vowel, charValue[i].ToString()) > -1)
+                {
                     results++;
+                }
             }
-            return -1;
+            return results;
         }
     }
 }
